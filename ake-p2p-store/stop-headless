@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PIDFILE=chord.pid
+
+if [ -f $PIDFILE ]; then
+	kill `cat $PIDFILE`
+	rm $PIDFILE
+fi

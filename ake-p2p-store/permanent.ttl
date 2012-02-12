@@ -1,0 +1,129 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kwl: <http://www.kwl-luebeck.de/parken-in-lübeck/aktuelle-parkplatzbelegung/> .
+@prefix db: <http://dbpedia.org/resource/> .
+@prefix spfr:    <http://spitfire-project.eu/cc/spitfireCC_n3.owl#> .
+
+<db:Restaurant> <http://www.rwglab.de/sensorsearch#is-described-by> "restaurant" .
+<db:Restaurant> <http://www.rwglab.de/sensorsearch#is-described-by> "eatery" .
+<db:Restaurant> <http://www.rwglab.de/sensorsearch#is-described-by> "diner" .
+<db:Restaurant> <http://www.rwglab.de/sensorsearch#is-described-by> "eating place" .
+
+<db:Room> <http://www.rwglab.de/sensorsearch#is-described-by> "room" .
+<db:Room> <http://www.rwglab.de/sensorsearch#is-described-by> "cabin" .
+<db:Room> <http://www.rwglab.de/sensorsearch#is-described-by> "office" .
+
+<db:Parking_lot> <http://www.rwglab.de/sensorsearch#is-described-by> "car park" .
+<db:Parking_lot> <http://www.rwglab.de/sensorsearch#is-described-by> "parking-lot" .
+<db:Parking_lot> <http://www.rwglab.de/sensorsearch#is-described-by> "parking lot" .
+<db:Parking_lot> <http://www.rwglab.de/sensorsearch#is-described-by> "parking spot" .
+<db:Parking_lot> <http://www.rwglab.de/sensorsearch#is-described-by> "parking space" .
+
+<http://spitfire-project.eu/sensor_model/occupation> <http://www.rwglab.de/sensorsearch#is-described-by> "occupation" .
+<http://spitfire-project.eu/sensor_model/occupation> <http://www.rwglab.de/sensorsearch#is-described-by> "occupancy" .
+<http://spitfire-project.eu/sensor_model/occupation> <http://www.rwglab.de/sensorsearch#is-described-by> "occ" .
+<http://spitfire-project.eu/sensor_model/occupation> <http://www.rwglab.de/sensorsearch#is-described-by> "occupation" .
+<http://spitfire-project.eu/sensor_model/occupation> <http://www.rwglab.de/sensorsearch#is-described-by> "occupancy" .
+<http://spitfire-project.eu/sensor_model/occupation> <http://www.rwglab.de/sensorsearch#is-described-by> "occ" .
+
+<db:Temperature> <http://www.rwglab.de/sensorsearch#is-described-by> "temp" .
+<db:Temperature> <http://www.rwglab.de/sensorsearch#is-described-by> "temperature" .
+
+<http://spitfire-project.eu/sensor_model/occupation> <http://www.rwglab.de/sensorsearch#has-description> <http://www.parkour-luebeck.de/stuff/xml/occupation.xml> .
+<db:Temperature> <http://www.rwglab.de/sensorsearch#has-description> <http://www.parkour-luebeck.de/stuff/xml/temp.xml> .
+
+<spfr:room38> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room39> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room40> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room41> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room42> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room44> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room46> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room47> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room57> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room58> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room59> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room60> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room61> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room62> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+<spfr:room255> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <db:Room>.
+
+<spfr:room38> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.86718"^^xsd:double .
+<spfr:room38> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.68435"^^xsd:double .
+
+<kwl:#PH St. Marien> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.86718"^^xsd:double .
+<kwl:#PH St. Marien> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.68435"^^xsd:double .
+
+<kwl:#PP Lastadie P3> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.870319"^^xsd:double .
+<kwl:#PP Lastadie P3> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.67863"^^xsd:double .
+
+<kwl:#PP Lastadie P4> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.871635"^^xsd:double .
+<kwl:#PP Lastadie P4> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.678769"^^xsd:double .
+
+<kwl:#PP Lastadie P5> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.871935"^^xsd:double .
+<kwl:#PP Lastadie P5> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.68047"^^xsd:double .
+
+<kwl:#PP MuK> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.868952"^^xsd:double .
+<kwl:#PP MuK> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.676972"^^xsd:double .
+
+<kwl:#PP Radisson Hotel> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.867719"^^xsd:double .
+<kwl:#PP Radisson Hotel> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.677836"^^xsd:double .
+
+<kwl:#PH Am Burgtor> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.87227"^^xsd:double .
+<kwl:#PH Am Burgtor> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.69414"^^xsd:double .
+
+<kwl:#PH Falkenstrasse> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.86936"^^xsd:double .
+<kwl:#PH Falkenstrasse> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.69847"^^xsd:double .
+
+<kwl:#PH Huexstrasse> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.864998"^^xsd:double .
+<kwl:#PH Huexstrasse> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.69394"^^xsd:double .
+
+<kwl:#PP Kanalstrasse 1-5> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.86823"^^xsd:double .
+<kwl:#PP Kanalstrasse 1-5> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.69609"^^xsd:double .
+
+<kwl:#PH Linden Arcaden> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.86726"^^xsd:double .
+<kwl:#PH Linden Arcaden> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.6728"^^xsd:double .
+
+<kwl:#PH Haerder-Center> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.865577"^^xsd:double .
+<kwl:#PH Haerder-Center> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.685528"^^xsd:double .
+
+<kwl:#PH Karstadt> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.8677"^^xsd:double .
+<kwl:#PH Karstadt> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.687524"^^xsd:double .
+
+<kwl:#PH Mitte> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.865258"^^xsd:double .
+<kwl:#PH Mitte> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.683559"^^xsd:double .
+
+<kwl:#PH Pferdemarkt> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.86421"^^xsd:double .
+<kwl:#PH Pferdemarkt> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.68529"^^xsd:double .
+
+<kwl:#PH Am Holstentor> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.86466"^^xsd:double .
+<kwl:#PH Am Holstentor> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.67866"^^xsd:double .
+
+<kwl:#PH Radisson Hotel> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.86745"^^xsd:double .
+<kwl:#PH Radisson Hotel> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.67834"^^xsd:double .
+
+<kwl:#PP Kowitzberg> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.975184"^^xsd:double .
+<kwl:#PP Kowitzberg> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.875778"^^xsd:double .
+
+<kwl:#PP Backbord> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.969994"^^xsd:double .
+<kwl:#PP Backbord> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.880139"^^xsd:double .
+
+<kwl:#PP Godewind> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.966116"^^xsd:double .
+<kwl:#PP Godewind> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.875392"^^xsd:double .
+
+<kwl:#PH Maritim> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.961426"^^xsd:double .
+<kwl:#PH Maritim> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.881443"^^xsd:double .
+
+<kwl:#PP Am Leuchtturm> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.960858"^^xsd:double .
+<kwl:#PP Am Leuchtturm> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.877366"^^xsd:double .
+
+<kwl:#PP Leuchtenfeld> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.960378"^^xsd:double .
+<kwl:#PP Leuchtenfeld> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.881625"^^xsd:double .
+
+<kwl:#PP Hafenbahnhof> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.958579"^^xsd:double .
+<kwl:#PP Hafenbahnhof> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.864298"^^xsd:double .
+
+<kwl:#PP Baggersand 1> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.955416"^^xsd:double .
+<kwl:#PP Baggersand 1> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.863065"^^xsd:double .
+
+<kwl:#PP Baggersand 2> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "53.955524"^^xsd:double .
+<kwl:#PP Baggersand 2> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "10.860736"^^xsd:double .

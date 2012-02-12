@@ -1,0 +1,6 @@
+#!/bin/bash
+svn update
+rm -f classpath.txt && \
+mvn clean compile -DskipTests && \
+mvn dependency:build-classpath -Dmdep.outputFile=classpath.txt && \
+./run
