@@ -15,5 +15,5 @@ PIDFILE=chord.pid
 OUTFILE=chord.out
 ERRFILE=chord.err
 
-nohup java -Djava.net.preferIPv4Stack=true -cp $RWS_CP de.rwglab.p2pts.TripleStoreMain $PARAMS 1> $OUTFILE 2> $ERRFILE &
+nohup java -Djava.endorsed.dirs=target/endorsed -Djava.net.preferIPv4Stack=true -cp $RWS_CP de.rwglab.p2pts.TripleStoreMain $PARAMS 1> $OUTFILE 2> $ERRFILE &
 echo $! >> $PIDFILE
