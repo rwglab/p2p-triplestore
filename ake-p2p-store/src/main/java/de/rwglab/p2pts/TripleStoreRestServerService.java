@@ -40,7 +40,12 @@ public class TripleStoreRestServerService extends AbstractService {
 
 		try {
 
-			server = new Server(config.restServerAddress);
+
+			if (config.restServerHostname != null) {
+				server = new Server(new InetSocketAddress(config.restServerHostname, config.restServerPort));
+			} else {
+				server = new Server(config.restServerPort);
+			}
 
 			FilterHolder guiceFilterHolder = new FilterHolder(guiceFilter);
 
@@ -55,7 +60,7 @@ public class TripleStoreRestServerService extends AbstractService {
 			server.setHandler(contexts);
 			server.start();
 
-			log.info("Started server on {}", config.restServerAddress);
+			log.info("Started server on port {}", config.restServerPort);
 
 			notifyStarted();
 

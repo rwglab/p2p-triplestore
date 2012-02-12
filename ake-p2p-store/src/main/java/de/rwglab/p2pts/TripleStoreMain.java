@@ -11,6 +11,7 @@ import org.kohsuke.args4j.CmdLineParser;
 import org.slf4j.LoggerFactory;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
+import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -43,12 +44,14 @@ public class TripleStoreMain {
 
 		setLogLevel(config);
 
+		InetSocketAddress p2pLocalAddress = new InetSocketAddress(config.p2pLocalHostname, config.p2pLocalPort);
+		
 		final DHashService dHashService = new DHashService(
 				"TripleStore",
-				config.p2pLocalAddress,
+				p2pLocalAddress,
 				config.p2pBootstrapAddress,
 				JDBC_DRIVER,
-				JDBC_URL_PREFIX + config.p2pLocalAddress.getHostName() + ":" + config.p2pLocalAddress.getPort()
+				JDBC_URL_PREFIX + config.p2pLocalHostname + ":" + config.p2pLocalPort
 		);
 
 		dHashService.start().get();

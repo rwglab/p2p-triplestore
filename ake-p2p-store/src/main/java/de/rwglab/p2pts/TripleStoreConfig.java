@@ -6,7 +6,9 @@ import org.apache.log4j.Level;
 import org.kohsuke.args4j.Option;
 
 import java.io.File;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 
 public class TripleStoreConfig {
 
@@ -46,18 +48,22 @@ public class TripleStoreConfig {
 	@Option(name = "--brokerQueueAutoDelete", usage = "set to make broker queue autodelete")
 	public boolean brokerQueueAutoDelete = false;
 
-	@Option(name = "--restServerAddress", usage = "address to start the REST server on", metaVar = "HOSTNAME:PORT",
-			handler = InetSocketAddressOptionHandler.class)
-	public InetSocketAddress restServerAddress;
+	@Option(name = "--restServerHostname", usage = "hostname to start the REST server on", metaVar = "HOSTNAME")
+	public String restServerHostname;
+
+	@Option(name = "--restServerPort", usage = "port to start the REST server on", metaVar = "PORT")
+	public int restServerPort;
 
 	@Option(name = "--p2pBootstrapAddress",
 			usage = "set to the hostname and port of an existing chord node to join its network",
 			handler = InetSocketAddressOptionHandler.class)
 	public InetSocketAddress p2pBootstrapAddress = null;
 
-	@Option(name = "--p2pLocalAddress", usage = "the address of the local chord node",
-			handler = InetSocketAddressOptionHandler.class)
-	public InetSocketAddress p2pLocalAddress = null;
+	@Option(name = "--p2pLocalHostname", usage = "the hostname of the local chord node")
+	public String p2pLocalHostname = null;
+
+	@Option(name = "--p2pLocalPort", usage = "the port of the local chord node")
+	public int p2pLocalPort = 8890;
 
 	@Option(name = "--p2pRDFImport", usage = "a file containing RDF data to be imported into the chord network")
 	public File p2pRDFImport = null;
@@ -77,4 +83,12 @@ public class TripleStoreConfig {
 
 	@Option(name = "--help", usage = "this help message.")
 	public boolean help = false;
+
+	public TripleStoreConfig() {
+		try {
+			p2pLocalHostname = InetAddress.getLocalHost().getHostName();
+		} catch (UnknownHostException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
