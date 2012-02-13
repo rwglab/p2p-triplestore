@@ -41,10 +41,10 @@ public class TripleStoreImpl implements TripleStore {
 
 		final Set<Future> operationFutures = newHashSet();
 
-		final ListenableFuture<Void> spFuture = setMapAsync.put(getSPKey(triple), triple.object, 2, TimeUnit.SECONDS);
-		final ListenableFuture<Void> poFuture = setMapAsync.put(getPOKey(triple), triple.subject, 2, TimeUnit.SECONDS);
+		final ListenableFuture<Void> spFuture = setMapAsync.put(getSPKey(triple), triple.object, 10, TimeUnit.SECONDS);
+		final ListenableFuture<Void> poFuture = setMapAsync.put(getPOKey(triple), triple.subject, 10, TimeUnit.SECONDS);
 		final ListenableFuture<Void> soFuture =
-				setMapAsync.put(getSOKey(triple), triple.predicate, 2, TimeUnit.SECONDS);
+				setMapAsync.put(getSOKey(triple), triple.predicate, 10, TimeUnit.SECONDS);
 
 		operationFutures.add(spFuture);
 		operationFutures.add(poFuture);
@@ -100,7 +100,7 @@ public class TripleStoreImpl implements TripleStore {
 		if (triple.subject == null) {
 
 			final SettableFuture<Set<Triple>> future = SettableFuture.create();
-			final ListenableFuture<Set<String>> subjectsFuture = setMapAsync.get(getPOKey(triple), 2, TimeUnit.SECONDS);
+			final ListenableFuture<Set<String>> subjectsFuture = setMapAsync.get(getPOKey(triple), 10, TimeUnit.SECONDS);
 			subjectsFuture.addListener(new Runnable() {
 				@Override
 				public void run() {
@@ -127,8 +127,7 @@ public class TripleStoreImpl implements TripleStore {
 		} else if (triple.predicate == null) {
 
 			final SettableFuture<Set<Triple>> future = SettableFuture.create();
-			final ListenableFuture<Set<String>> predicatesFuture =
-					setMapAsync.get(getSOKey(triple), 2, TimeUnit.SECONDS);
+			final ListenableFuture<Set<String>> predicatesFuture = setMapAsync.get(getSOKey(triple), 10, TimeUnit.SECONDS);
 			predicatesFuture.addListener(new Runnable() {
 				@Override
 				public void run() {
@@ -155,7 +154,7 @@ public class TripleStoreImpl implements TripleStore {
 		} else {
 
 			final SettableFuture<Set<Triple>> future = SettableFuture.create();
-			final ListenableFuture<Set<String>> objectsFuture = setMapAsync.get(getSPKey(triple), 2, TimeUnit.SECONDS);
+			final ListenableFuture<Set<String>> objectsFuture = setMapAsync.get(getSPKey(triple), 10, TimeUnit.SECONDS);
 			objectsFuture.addListener(new Runnable() {
 				@Override
 				public void run() {
@@ -232,11 +231,11 @@ public class TripleStoreImpl implements TripleStore {
 		final Set<Future> operationFutures = newHashSet();
 
 		final ListenableFuture<Void> spFuture =
-				setMapAsync.remove(getSPKey(triple), triple.object, 2, TimeUnit.SECONDS);
+				setMapAsync.remove(getSPKey(triple), triple.object, 10, TimeUnit.SECONDS);
 		final ListenableFuture<Void> poFuture =
-				setMapAsync.remove(getPOKey(triple), triple.subject, 2, TimeUnit.SECONDS);
+				setMapAsync.remove(getPOKey(triple), triple.subject, 10, TimeUnit.SECONDS);
 		final ListenableFuture<Void> soFuture =
-				setMapAsync.remove(getSOKey(triple), triple.predicate, 2, TimeUnit.SECONDS);
+				setMapAsync.remove(getSOKey(triple), triple.predicate, 10, TimeUnit.SECONDS);
 
 		spFuture.addListener(new Runnable() {
 			@Override
