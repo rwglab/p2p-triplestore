@@ -107,8 +107,14 @@ public class TripleStoreImpl implements TripleStore {
 					try {
 
 						Set<Triple> results = newHashSet();
-						for (String subject : subjectsFuture.get()) {
-							results.add(new Triple(subject, triple.predicate, triple.object));
+
+						Set<String> searchResults = subjectsFuture.get();
+
+						if (searchResults != null) {
+
+							for (String subject : searchResults) {
+								results.add(new Triple(subject, triple.predicate, triple.object));
+							}
 						}
 
 						future.set(results);
@@ -134,8 +140,14 @@ public class TripleStoreImpl implements TripleStore {
 					try {
 
 						Set<Triple> results = newHashSet();
-						for (String predicate : predicatesFuture.get()) {
-							results.add(new Triple(triple.subject, predicate, triple.object));
+
+						Set<String> searchResults = predicatesFuture.get();
+
+						if (searchResults != null) {
+
+							for (String predicate : searchResults) {
+								results.add(new Triple(triple.subject, predicate, triple.object));
+							}
 						}
 
 						future.set(results);
