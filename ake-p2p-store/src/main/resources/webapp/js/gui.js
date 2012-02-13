@@ -18,9 +18,63 @@ window.onload = function() {
 	paper.text(135,510,"Put").attr(textAttr);
 	paper.text(135,530,"Get").attr(textAttr);
 		
-	//test();
+	//test2();
 	
 	startWebSocket();
+	setInterval ( "drawStatus()", 1000 );
+}
+
+function test2()
+{
+	peer = { 
+			"type" : "status",
+			"id" : "host1",
+            "min"  : 0,
+            "max"  : Math.pow(2,159),
+			"triples" : 123,
+			"redirects" : 20,
+			"gets" : 203,
+			"puts" : 56
+		};
+	peer2 = { 
+			"type" : "status",
+			"id" : "host2",
+            "min"  : Math.pow(2,159),
+            "max"  : Math.pow(2,160)-Math.pow(2,159)/2,
+			"triples" : 312,
+			"redirects" : 20,
+			"gets" : 303,
+			"puts" : 156
+		};
+	peer3 = { 
+			"type" : "status",
+			"id" : "host3",
+            "min"  : Math.pow(2,160)-Math.pow(2,159)/2,
+            "max"  : Math.pow(2,160),
+			"triples" : 252,
+			"redirects" : 20,
+			"gets" : 33,
+			"puts" : 235
+		};
+	processStatusMessage(peer);
+	processStatusMessage(peer2);
+	processStatusMessage(peer3);
+	
+	updMessage = {
+			"type" : "update",
+			"id" : "host3",
+			"hash" : getRandom(0,maxBar),
+			"oldvalue" :  "example1",	
+			"value" :  "example2"
+		};
+		getMessage = {
+			"type" : "get",
+			"id" : "host4",
+			"hash" : getRandom(0,maxBar),
+			"response" :  ["example1",	"example2"]
+		};
+	processOpMessage(updMessage);
+	processOpMessage(getMessage);
 }
 
 function test() {
@@ -222,8 +276,13 @@ function processOpMessage(message) {
 */
 function processStatusMessage(message)
 {
+	message.timestamp = new Date().getMilliseconds();
 	deletePeer(message.id);
 	peersJSON.push(message);
+}
+
+function drawStatus()
+{
 	deleteOldPeers();
 	drawPeers();
 	drawChart(930,470,20,100,0,getMaxOpAtPeer(),opChart);
@@ -285,7 +344,7 @@ function drawPeers() {
 function deleteOldPeers() {
 	for(var i = 0;i<peersJSON.length;i++)
 	{
-		if(new Date(peersJSON[i].timestamp + 7000) < new Date())
+		if((peersJSON[i].timestamp + 5000) < new Date().getMilliseconds())
 		{
 			peersJSON.splice(i,1);
 		}
@@ -452,7 +511,7 @@ function drawArrowDeep(incoming,bubbleColor,id,x,y,text) {
 	}
 	else
 	{
-		text = paper.text(x,y+20,text).attr("font-size", "12").animate(anim.delay(1000));
+		text = paper.text(x,y+25,text).attr("font-size", "12").animate(anim.delay(1000));
 		bubble= drawOutBubble(x,y,text.getBBox().width+10,text.getBBox().height,text).attr({fill: bubbleColor}).animate(anim.delay(1000)).toBack();		
 	}
 	paper.path("M"+x+","+y+" l"+(-10)+","+(-10)+"H"+x+"v"+(-70)+"v"+(70)+"h"+10+"Z").attr({fill: "black"}).animate(anim.delay(1000));
