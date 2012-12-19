@@ -22,11 +22,9 @@ public class ChordBasedSetMapAsync<K, V> implements SetMapAsync<K, V> {
 		this.executor = executor;
 	}
 
-	@Override
 	public ListenableFuture<Set<V>> get(final K key, final int timeout, final TimeUnit timeoutTimeUnit) {
 		final SettableFuture<Set<V>> future = SettableFuture.create();
 		executor.execute(new Runnable() {
-			@Override
 			public void run() {
 				try {
 					final Delay<ChordSet<V>> delay = dhasher.get(key);
@@ -40,11 +38,9 @@ public class ChordBasedSetMapAsync<K, V> implements SetMapAsync<K, V> {
 		return future;
 	}
 
-	@Override
 	public ListenableFuture<Void> put(final K key, final V value, final int timeout, final TimeUnit timeoutTimeUnit) {
 		final SettableFuture<Void> future = SettableFuture.create();
 		executor.execute(new Runnable() {
-			@Override
 			public void run() {
 				try {
 					ChordSet<V> set = new ChordSet<V>();
@@ -61,13 +57,11 @@ public class ChordBasedSetMapAsync<K, V> implements SetMapAsync<K, V> {
 		return future;
 	}
 
-	@Override
 	public ListenableFuture<Void> remove(final K key, final V value, final int timeout,
 										 final TimeUnit timeoutTimeUnit) {
 
 		final SettableFuture<Void> future = SettableFuture.create();
 		executor.execute(new Runnable() {
-			@Override
 			public void run() {
 				try {
 					ChordSet<V> set = new ChordSet<V>();
