@@ -9,15 +9,15 @@
 
 package cx.ath.troja.chordless.dhash.structures;
 
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
-
 import cx.ath.troja.chordless.dhash.Delay;
 import cx.ath.troja.chordless.dhash.Delays;
 import cx.ath.troja.chordless.dhash.Persistent;
 import cx.ath.troja.chordless.dhash.Persister;
 import cx.ath.troja.chordless.dhash.transactions.Transaction;
 import cx.ath.troja.nja.Identifier;
+
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class DHashMap<K, V> extends Persistent implements DMap<K, V> {
 
@@ -246,7 +246,7 @@ public class DHashMap<K, V> extends Persistent implements DMap<K, V> {
 	}
 
 	@Override
-	public V get(K k) {
+	public V read(K k) {
 		Delay<DHashMapEntry<K, V>> delay = super.get(identifierFor(getIdentifier(), k));
 		setTaint(false);
 		if (delay.get() == null) {
@@ -257,7 +257,7 @@ public class DHashMap<K, V> extends Persistent implements DMap<K, V> {
 	}
 
 	@Override
-	public V del(K k) {
+	public V delete(K k) {
 		Delay<DHashMapEntry<K, V>> delay = super.get(identifierFor(getIdentifier(), k));
 		DHashMapEntry<K, V> existingEntry = delay.get();
 		setTaint(false);
@@ -271,7 +271,7 @@ public class DHashMap<K, V> extends Persistent implements DMap<K, V> {
 	}
 
 	@Override
-	public V put(K k, V v) {
+	public V create(K k, V v) {
 		Delay<DHashMapEntry<K, V>> delay = super.get(identifierFor(getIdentifier(), k));
 		DHashMapEntry<K, V> existingEntry = delay.get();
 		setTaint(false);

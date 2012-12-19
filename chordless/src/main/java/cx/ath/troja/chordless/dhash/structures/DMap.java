@@ -9,14 +9,14 @@
 
 package cx.ath.troja.chordless.dhash.structures;
 
-import java.io.Serializable;
-import java.util.AbstractMap;
-import java.util.Map;
-
 import cx.ath.troja.chordless.dhash.Persistable;
 import cx.ath.troja.chordless.dhash.Persistent;
 import cx.ath.troja.chordless.dhash.Persister;
 import cx.ath.troja.nja.Identifier;
+
+import java.io.Serializable;
+import java.util.AbstractMap;
+import java.util.Map;
 
 public interface DMap<K, V> extends Persistable {
 
@@ -148,11 +148,11 @@ public interface DMap<K, V> extends Persistable {
 
 	public <S> S inject(S s, DInject<S, K, V> inject);
 
-	public V put(K k, V v);
+	public V create(K k, V v);
 
-	public V del(K k);
+	public V delete(K k);
 
-	public V get(K k);
+	public V read(K k);
 
 	public long size();
 

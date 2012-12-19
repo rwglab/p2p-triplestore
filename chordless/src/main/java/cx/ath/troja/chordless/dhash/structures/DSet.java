@@ -9,10 +9,10 @@
 
 package cx.ath.troja.chordless.dhash.structures;
 
-import java.util.Map;
-
 import cx.ath.troja.chordless.dhash.Persister;
 import cx.ath.troja.nja.Identifier;
+
+import java.util.Map;
 
 public class DSet<V> extends DHashMap<V, Object> implements DCollection<V> {
 
@@ -106,7 +106,7 @@ public class DSet<V> extends DHashMap<V, Object> implements DCollection<V> {
 
 	@Override
 	public void remove(V v) {
-		super.del(v);
+		super.delete(v);
 	}
 
 	@Override

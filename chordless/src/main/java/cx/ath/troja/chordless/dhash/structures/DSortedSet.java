@@ -9,10 +9,10 @@
 
 package cx.ath.troja.chordless.dhash.structures;
 
-import java.util.Map;
-
 import cx.ath.troja.chordless.dhash.Persister;
 import cx.ath.troja.nja.Identifier;
+
+import java.util.Map;
 
 public class DSortedSet<V extends Comparable<? super V>> extends DTreap<V, Object> implements DCollection<V> {
 
@@ -101,7 +101,7 @@ public class DSortedSet<V extends Comparable<? super V>> extends DTreap<V, Objec
 
 	@Override
 	public void remove(V v) {
-		super.del(v);
+		super.delete(v);
 	}
 
 	@Override

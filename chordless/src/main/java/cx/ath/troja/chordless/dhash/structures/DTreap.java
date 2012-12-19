@@ -9,17 +9,17 @@
 
 package cx.ath.troja.chordless.dhash.structures;
 
-import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.Map;
-import java.util.Random;
-
 import cx.ath.troja.chordless.dhash.Delay;
 import cx.ath.troja.chordless.dhash.Delays;
 import cx.ath.troja.chordless.dhash.Persistent;
 import cx.ath.troja.chordless.dhash.Persister;
 import cx.ath.troja.chordless.dhash.transactions.Transaction;
 import cx.ath.troja.nja.Identifier;
+
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.Map;
+import java.util.Random;
 
 public class DTreap<K extends Comparable<? super K>, V> extends Persistent implements DMap<K, V> {
 
@@ -838,7 +838,7 @@ public class DTreap<K extends Comparable<? super K>, V> extends Persistent imple
 	}
 
 	@Override
-	public V get(K k) {
+	public V read(K k) {
 		setTaint(false);
 		if (root == null) {
 			return null;
@@ -849,7 +849,7 @@ public class DTreap<K extends Comparable<? super K>, V> extends Persistent imple
 	}
 
 	@Override
-	public V del(K k) {
+	public V delete(K k) {
 		setTaint(false);
 		if (root == null) {
 			return null;
@@ -860,7 +860,7 @@ public class DTreap<K extends Comparable<? super K>, V> extends Persistent imple
 	}
 
 	@Override
-	public V put(K k, V v) {
+	public V create(K k, V v) {
 		setTaint(false);
 		if (root == null) {
 			Node<K, V> n = new Node<K, V>(getIdentifier(), null, k, v);
