@@ -10,7 +10,6 @@
 	<version>1.0-SNAPSHOT</version>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>cx.ath.troja</groupId>
 			<artifactId>chordless</artifactId>
@@ -265,17 +264,17 @@
 	</repositories>
 
 	<distributionManagement>
-        <repository>
-            <id>itm-maven-repository-releases</id>
-            <name>ITM UzL Maven releases repository</name>
-            <url>http://maven.itm.uni-luebeck.de/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>itm-maven-repository-snapshots</id>
-            <name>ITM UzL Maven snapshots repository</name>
-            <url>http://maven.itm.uni-luebeck.de/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+		<repository>
+			<id>itm-maven-repository-releases</id>
+			<name>ITM UzL Maven releases repository</name>
+			<url>http://maven.itm.uni-luebeck.de/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>itm-maven-repository-snapshots</id>
+			<name>ITM UzL Maven snapshots repository</name>
+			<url>http://maven.itm.uni-luebeck.de/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
