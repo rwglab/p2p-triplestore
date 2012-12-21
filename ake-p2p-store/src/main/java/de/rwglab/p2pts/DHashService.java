@@ -1,5 +1,6 @@
 package de.rwglab.p2pts;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.util.concurrent.AbstractService;
 import cx.ath.troja.chordless.dhash.DHash;
 import cx.ath.troja.chordless.dhash.Dhasher;
@@ -35,16 +36,11 @@ public class DHashService extends AbstractService {
 						final String jdbcDriver,
 						final String jdbcUrl) {
 
-		checkNotNull(serviceName);
-		checkNotNull(localAddress);
-		checkNotNull(jdbcDriver);
-		checkNotNull(jdbcUrl);
-
-		this.serviceName = serviceName;
+		this.serviceName = checkNotNull(serviceName);
 		this.bootstrapAddress = bootstrapAddress;
-		this.localAddress = localAddress;
-		this.jdbcDriver = jdbcDriver;
-		this.jdbcUrl = jdbcUrl;
+		this.localAddress = checkNotNull(localAddress);
+		this.jdbcDriver = checkNotNull(jdbcDriver);
+		this.jdbcUrl = checkNotNull(jdbcUrl);
 	}
 
 	@Override
@@ -109,5 +105,10 @@ public class DHashService extends AbstractService {
 	public Dhasher getDhasher() {
 		checkState(isConnected());
 		return dhasher;
+	}
+
+	@VisibleForTesting
+	public void clearLocalStorage() {
+		new JDBCStorage(new JDBC(jdbcDriver, jdbcUrl)).destroy();
 	}
 }
